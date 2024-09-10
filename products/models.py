@@ -11,3 +11,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property #? this allows us to use the function as a attribute of the class object so we can call it without using parenthesis
+    def sale_price(self):
+        return self.price *5

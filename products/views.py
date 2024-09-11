@@ -48,6 +48,28 @@ class ProductList(APIView):   # this is our api view
 
 
 class ProductDetailsAPIView(generics.RetrieveAPIView):
+    queryset = Product.objects.all() #* this is the query set that we want to retrieve from the database
+    serializer_class = ProductSerializer  #? this is the serializer class that we want to use to serialize the data
+    lookup_field = 'id' #? this is the field that we want to use to look up the object in the database. This is mandatory to use this field in the url path to get the object from the database otherwise the object will not be found and it will return a 404 error.
+
+class ProductCreateView(generics.CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    lookup_field = 'id'
+
+# class ProductUpdateView(generics.UpdateAPIView):
+#     queryset = Product.objects.all()
+#     serializer
+#     class = ProductSerializer
+#     lookup_field = 'id'
+#     lookup_url_kwarg = 'id'
+#     def update(self, request, *args, **kwargs):
+#         return self.update(request, *args, **kwargs)
+#     def partial_update(self, request, *args, **kwargs):
+#         return self.partial_update(request, *args, **kwargs)
+
+# class ProductDeleteView(generics.DestroyAPIView):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
+#     lookup_field = 'id'
+#     # lookup_url_kwarg = 'id'
+    

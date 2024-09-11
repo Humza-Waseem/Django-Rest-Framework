@@ -48,17 +48,6 @@ def api_home(request, *args, **kwargs):
     return JsonResponse(data, safe=False)
 
 
-
-
-
-
-
-
-
-
-
-
-
 def Home(request):
     # HttpResponse('Hello World')
     return render(request, 'base/home.html')
